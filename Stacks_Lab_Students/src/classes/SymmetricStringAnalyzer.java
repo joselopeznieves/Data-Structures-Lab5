@@ -46,7 +46,17 @@ public class SymmetricStringAnalyzer {
 	{
 		// ADD MISSING CODE
 		
-		return null;  // need to change if necessary....
+		if(!this.isValidContent()) throw new StringIsNotSymmetricException("String is not Symmetric");
+		String result = "";
+		for(int i = 0; i < s.length(); i++){
+			char c = s.charAt(i);
+			if(Character.isUpperCase(c))
+				result += "< " + c + " ";
+			else
+				result += c + " > ";
+		}
+		
+		return result;  // need to change if necessary....
 	}
 
 }
