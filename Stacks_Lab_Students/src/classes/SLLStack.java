@@ -20,14 +20,20 @@ public class SLLStack<E> implements Stack<E>
 		
 		// ADD CODE TO COMPLETE IMPLEMENTATION
 		
-		ntr.clean(); 
+		SNode<E> ntr = top;
+		E etr = top.getElement();
+		top = top.getNext();
 		
+		ntr.clean(); 
+		size--;
 		return etr;
 	}
 
 	public void push(E e) {
 		// ADD CODE TO COMPLETE IMPLEMENTATION
 		
+		top = new SNode<>(e, top);
+		size++;
 	}
 
 	public E top() {
