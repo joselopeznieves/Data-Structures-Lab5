@@ -12,8 +12,29 @@ public class SymmetricStringAnalyzer {
 	 */
 	public boolean isValidContent() { 
 		// ADD MISSING CODE
-		
-		return true;  // need to change if necessary....
+		SLLStack<Character> stack = new SLLStack<Character>();
+		if(s.isEmpty()) return true;
+		for (int i=0; i < s.length(); i++) { 
+	        char c = s.charAt(i); 
+	        if (Character.isLetter(c)){ 				//Character is a letter
+	        	if (Character.isUpperCase(c))
+		              stack.push(c);					//Uppercase letter is pushed to stack
+		        else { 									//Must be a lower case letter 
+		        	if (stack.isEmpty())					
+		        		return false; 
+		            else {								//Lowercase letter and stack is not empty 
+		            	char t = stack.pop(); 			 //Find the top letter entered to the stack
+		            	if (t != Character.toUpperCase(c))		//This letter must be the same as the one we have
+		            		return false; 
+		            }
+		        }   
+	        }
+	         else 
+	        	 return false; 
+	        
+	    } 
+		return stack.isEmpty();
+
 	}
 	
 	public String toString() { 
